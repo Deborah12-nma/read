@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Voice AI</title>
+  <style>
+    body {
+      
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      background-color: black;
+      position: fixed;
+    }
+    button  {
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: -410px;
+      background-color: rgb(255, 255, 255);
+      position: absolute;
+      margin-left: -600px;
+      border: 2px solid rgb(70, 2, 43);
+      box-shadow: 1px 1px 50px rgb(116, 1, 77);
+      animation: resizeImage 6s infinite; 
+      align-items: center;
+    }
+
+    button img {
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+     
+      margin-left: -25px;
+     margin-top: -15px;
+      border: 2px solid rgb(70, 2, 43);
+      box-shadow: 1px 1px 50px rgb(116, 1, 77);
+       
+    }
+
+    @keyframes resizeImage  {
+    0% {
+        transform: scale(1); /* Initial size */
+    }
+    50% {
+        transform: scale(1.2); /* 20% larger */
+    }
+    100% {
+        transform: scale(1); /* Back to normal size */
+    }
+}
+    p{
+      color: white;
+    }
+
+
+
+    .boder{
+    margin-top: -200px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.489);
+    width: 100%;
+    position: absolute;
+    box-shadow: 1px 1px 50px rgba(128, 3, 86, 0.541);
+}
+.site{
+    margin-top: 30px;
+    position: absolute;
+}
+.site img {
+    padding: 6px;
+
+}
+.qq{
+    width: 400px;
+    margin-left: 600px;
+    margin-top: 28px;
+}
+ t b  .qq p{
+    color: #ffffff;
+    font-size: 10px;
+}
+.ee{
+    position: absolute;
+    width: 100px;
+    margin-left: 200px;
+    margin-top: -20px;
+}
+.qq p{
+    font-size: 10px;
+    color: #ffffff;
+}
+.ee p{
+    font-size: 10px;
+    color: #ffffff;
+}
+.icoo{
+    margin-left: 850px;
+    position: absolute;
+    margin-top: -200px;
+}
+.icoo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    box-shadow: 1px 1px 50px rgba(128, 3, 86, 0.541);
+
+}
+.icoo p{
+    font-family: "Pacifico", cursive;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    color: #ffffff;
+    margin-left: 4px;
+}
+.number{
+    position: absolute;
+    margin-left: 400px;
+    margin-top: -70px;
+}
+.number p{
+    margin-top: -30px;
+    position: absolute;
+    margin-left: 80px;
+    font-size: 20px;
+}
+
+.its p{
+ color: orangered;
+ font-family: sans-serif;
+ font-weight: 950;
+ font-size: 50px;
+
+}
+.its{
+    margin-left: 900px;
+    position: absolute;
+}
+
+
+.slide{
+    width: 650px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0);
+    animation: slide 3s forwards;
+    overflow: hidden;
+    margin-top: -580px;
+    position: fixed;
+}
+
+.slide{
+    width: 650px;
+    height: 800px;
+    background-color: rgba(255, 255, 255, 0);
+    animation: slide 20s forwards;
+}
+
+@keyframes slide {
+    0%{
+        transform: translateX(100%);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(370%);
+        opacity: 0; 
+    }
+}
+@keyframes slid {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-300%);
+        opacity: 0; 
+    }
+}
+.slid{
+    width: 650px;
+    height: 800px;
+    background-color: rgba(255, 255, 255, 0);
+    animation: slid 20s forwards;
+    margin-top: -680px;
+    overflow: hidden;
+    position: fixed;
+}
+.slid img{
+    width: 650px;
+    height: 800px; 
+    margin-left: 320px;
+    margin-top: -400px;
+}
+.slide img{
+    width: 650px;
+    height: 800px;
+    margin-left: -650px;
+    margin-top: -400px;
+}
+.back img{
+  margin-top: 100px;
+  border-radius: 100%;
+  box-shadow: 1px 1px 50px rgba(128, 3, 86, 0.541);
+  width: 500px;
+  height: 500px;
+}
+.res p{
+  margin-top: -450px;
+  position: absolute;
+  margin-left: 900px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 50;
+}
+.up{
+  width: 100%;
+  height: 40px;
+  box-shadow: 1px 1px 50px rgba(128, 3, 86, 0.541);
+  position: absolute;
+}
+
+   
+.speaking-avatar {
+      position: absolute;
+      left: 800px;
+      top: 150px;
+      width: 80px;
+      height: 80px;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: 1px 1px 50px rgba(128, 3, 86, 0.541);
+      animation: speaking-animation 1s infinite alternate;
+      display: none; /* Hidden initially */
+    }
+
+    @keyframes speaking-animation {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
+    }
+   audio{
+    margin-left: -8000px;
+   }
+   canvas {
+    position: absolute;
+    margin-top: 40px;
+    left: 0;
+    z-index: -1; /* Ensures it's behind any content */
+    height: 600px;
+    width: 100%;
+    color: blueviolet;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="up">
+
+  </div>
+ 
+  <canvas id="matrixCanvas"></canvas>
+  <script src="script.js"></script>
+  <div class="back">
+    <img src="Preloader IV.gif" alt="">
+  </div>
+
+  <h1>Simple Voice AI</h1>
+  <div class="speaking-avatar" id="speaking-avatar"></div>
+  <button id="start-btn"><img src="Screenshot 2025-01-14 190147.png" alt=""></button>
+  <div class="res">
+    <p id="response"></p>
+  </div>
+  
+  
+
+
+    <div class="slide">
+ 
+     
+      </div>
+      
+      <div class="slid">
+       
+     
+      
+      </div>
+
+
+
+
+  <div class="audio-container" id="audio-container">
+    <audio id="audio-player" class="audio-player" controls>
+      <source src="Bruce Melodie - Niki Minaji feat. Blaq Diamond (Official Video).mp4" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+ 
+
+
+
+ 
+
+ 
+
+       
+  <div class="audio-container" id="audio-container">
+    <audio id="audio-player" class="audio-player" controls>
+      <source src="Bruce Melodie - Niki Minaji feat. Blaq Diamond (Official Video).mp4" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="audio-container" id="audio-containe">
+    <audio id="audio-playe" class="audio-playe" controls>
+      <source src="Chris_Brown_-_Angel_Numbers___Ten_Toes__Official_Video_.MP4" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+  <div class="audio-container" id="audio-contain">
+    <audio id="audio-play" class="audio-play" controls>
+      <source src="y2mate.com - KNAAN  Wavin Flag CocaCola Celebration Mix.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+  <div class="audio-container" id="audio-contai">
+    <audio id="audio-pla" class="audio-pla" controls>
+      <source src="music/y2mate.com - DTH_360p.mp4" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="audio-container" id="audio-conta">
+    <audio id="audio-pl" class="audio-pl" controls>
+      <source src="y2mate.com - FREE Central Cee x Melodic Drill Type Beat Aint Easy_360p.mp4" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+  <div class="audio-container" id="audio-cont">
+    <audio id="audio-p" class="audio-p" controls>
+      <source src="y2mate.com - Praise feat Brandon Lake Chris Brown  Chandler Moore  Elevation Worship.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+  <div class="audio-container" id="audio-con">
+    <audio id="audio" class="audio" controls>
+      <source src="y2mate.com - KNAAN  Wavin Flag CocaCola Celebration Mix.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <!-- Video Section -->
+  <div class="-container" id="video-container">
+    <video id="video-player" class="video-player" controls>
+      <source src="y2mate.com - Justin Timberlake Anna Kendrick  True Colors Lyric_720pHF.mp4" type="video/mp4">
+
+      <audio id="audio-playe" class="audio-playe" controls>
+        <source src="Chris_Brown_-_Angel_Numbers___Ten_Toes__Official_Video_.MP4" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+      Your browser does not support the video tag.
+    </video>
+  </div>
+     
+ 
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_REAL_API_KEY&callback=initMap" async defer></script>
+  <div id="map" style="height: 500px; width: 100%;"></div>
+
+
+  <script>
+    const startButton = document.getElementById('start-btn');
+    const responseText = document.getElementById('response');
+    const audioContaine = document.getElementById('audio-containe');/*class*/
+    const audioContain = document.getElementById('audio-contain');
+    const audioContai = document.getElementById('audio-contai');
+    const audioConta = document.getElementById('audio-conta');
+    const audioCon = document.getElementById('audio-con');
+    const audioCont = document.getElementById('audio-cont');
+    const forecontainer = document.getElementById('fore-container');
+    const kingcontainer = document.getElementById('king-container');
+    const audioPlaye = document.getElementById('audio-playe');
+    const audioPlay = document.getElementById('audio-play');
+    const audioPla = document.getElementById('audio-pla');
+    const audioPl = document.getElementById('audio-pl');
+    const audioP = document.getElementById('audio-p');
+    const audio = document.getElementById('audio');
+    const king = document.getElementById('king');/*id*/
+    const fore = document.getElementById('fore');
+    const audioContainer = document.getElementById('audio-container');
+    const audioPlayer = document.getElementById('audio-player');
+    const videoContainer = document.getElementById('video-container');
+    const videoPlayer = document.getElementById('video-player');
+   
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechSynthesis = window.speechSynthesis;
+
+    let recognition;
+    if (SpeechRecognition) {
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+    } else {
+      responseText.textContent = 'Speech Recognition not supported in this browser.';
+    }
+
+    startButton.addEventListener('click', () => {
+      if (recognition) {
+        recognition.start();
+        startButton.textContent = 'Listening...';
+      }
+    });
+
+
+    let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 37.7749, lng: -122.4194 }, // Example: San Francisco coordinates
+    zoom: 12,
+  });
+}
+
+    
+
+  const voices = window.speechSynthesis.getVoices();
+    
+   
+    recognition.onresult = function (event) {
+      const transcript = event.results[event.resultIndex][0].transcript;
+      responseText.textContent = 'You said: ' + transcript;
+       
+      const aiResponse = generateResponse(transcript);
+      speak(aiResponse);
+    };
+
+     
+  
+    
+
+    function generateResponse(input) {
+      const lowerInput = input.toLowerCase();
+
+     
+
+       if (lowerInput.includes('play music')) {
+        playMusic();
+        return 'Playing music now!';
+      } else if (lowerInput.includes('play Colors')) {
+        playVideo();
+        return 'Playing video now!';
+      } else if (lowerInput.includes('pause music')) {
+        pauseMusic();
+        return 'Music paused.';
+      } else if (lowerInput.includes('pause video')) {
+        pauseVideo();
+        return 'Video paused.';
+      } else if (lowerInput.includes('stop music')) {
+        stopMusic();
+        return 'Music stopped.';
+      } else if (lowerInput.includes('stop video')) {
+        stopVideo();
+        return 'Video stopped.';
+      }   if (lowerInput.includes('play angel')) {
+        playangel();
+        return 'Playing angel now!';
+      }   if (lowerInput.includes(' wish me good luck')) {
+        playking();
+        return 'good luck  and wish you all the best.';
+      }   if (lowerInput.includes('play love')) {
+        playfore();
+        return 'Playing love now!';
+      }  else if (lowerInput.includes('stop angel')) {
+        stopangel();
+        return 'Music stopped.';
+
+
+      } else if (lowerInput.includes('play drill')) {
+        playdrill();
+        return 'Music playing.';
+
+
+      }   else if (lowerInput.includes('stop drill')) {
+        stopdrill();
+        return 'Music stopped.';
+
+
+      }  else if (lowerInput.includes('play gospel')) {
+        playgospel();
+        return 'Music played amen.';
+
+
+      } else if (lowerInput.includes(' Play win')) {
+        playwin();
+        return 'Music played good luck student and wish you all the best.';
+
+
+      }
+       else if (lowerInput.includes('good evening')) { 
+       return 'Good evening! What can I do for you tonight?'; 
+      }
+       if (lowerInput.includes('who are you')) {
+        return 'I am just a program, created by the Byteworks group at the International School of Kigali. The members of the group are Liana, Tousent, Deborah, Fanette, Noela, Grace, Kelly, Samu, Nusla, and Shami.';
+      } else if (lowerInput.includes('hello')) {
+        return 'Hello, mister Mukasa!';
+      } else if (lowerInput.includes('what is your name')) {
+        return 'I am Jervis, your friendly assistant. How can I help you?';
+      } else if (lowerInput.includes('you are welcome')) {
+        return 'It’s a pleasure to help, Mukasa!';
+      } else if (lowerInput.includes('location of my school')) {
+        return 'The capital city of Rwanda, specifically in the Kibagabaga area.';
+      } else if (lowerInput.includes('tell me about my school')) {
+        return 'The International Technical School of Kigali (ITSK) is an educational institution located in Kigali, Rwanda. It offers a variety of academic programs, focusing on technology, vocational training, and practical skills development.';
+      } else if (lowerInput.includes('how was you created')) {
+        return 'I was created using JavaScript, HTML, and other AI tools by the Byteworks group. I was prototyped in Visual Studio Code on a Lenovo 12th generation i9 laptop.';
+      } else if (lowerInput.includes('how can I install cctv camera')) {
+        return 'To install a CCTV camera, choose the ideal locations, mount the camera securely, connect it to the DVR or NVR, and ensure power supply. Test the system and secure it with strong passwords.';
+      } else if (lowerInput.includes('good morning')) { 
+        return 'Good morning! How can I help you today?'; 
+      } else if (lowerInput.includes('what do you do')) { 
+        return 'I help with various tasks such as answering questions, explaining concepts, and providing information on many topics.'; 
+      } else if (lowerInput.includes('when were you created')) { 
+        return 'I was created in 2024 by the Byteworks group at ISK, using JavaScript and other AI technologies.'; 
+      }
+       else if (lowerInput.includes('what is a search engine')) { 
+        return 'A search engine is a tool that helps you find information on the internet, like Google or Bing.'; 
+      } else if (lowerInput.includes('what is data encryption')) { 
+        return 'Data encryption is the process of converting data into a secure format that can only be read with the appropriate decryption key.'; 
+      } else if (lowerInput.includes('can you answer history questions')) { 
+        return 'Yes, I can! Feel free to ask any history-related questions, and I’ll provide the answers.'; 
+      } else if (lowerInput.includes('what is machine learning')) { 
+        return 'Machine learning is a branch of AI that teaches machines to recognize patterns and make decisions based on data.'; 
+      } else if (lowerInput.includes('tell me about the internet of things')) { 
+        return 'The Internet of Things (IoT) refers to a network of interconnected devices that communicate and exchange data through the internet.'; 
+      } else if (lowerInput.includes('what is a computer virus')) { 
+        return 'A computer virus is a type of malicious software that replicates itself and spreads across devices, often causing damage to files or systems.'; 
+      } else if (lowerInput.includes(' How does a computer work')) { 
+        return 'A computer processes input, performs calculations, stores data, and produces output according to programmed instructions.'; 
+      } else if (lowerInput.includes('can you help me with my homework')) { 
+        return 'Absolutely! Please tell me what subject or topic you need help with.'; 
+      } else if (lowerInput.includes('What is a database')) { 
+        return 'A database is an organized collection of data that can be easily accessed, managed, and updated. Examples include MySQL, MongoDB, and SQL Server.'; 
+      } else if (lowerInput.includes('what is your favorite book')) { 
+        return 'I don’t read books like humans, but I’ve heard that "1984" by George Orwell is a great read!'; 
+      } else if (lowerInput.includes('how can I install a program')) { 
+        return 'To install a program, download the installation file, double-click it, and follow the on-screen instructions.'; 
+      } else if (lowerInput.includes('what is a programming language')) { 
+        return 'A programming language is a set of instructions used to create software, such as Python, JavaScript, and Java.'; 
+      } else if (lowerInput.includes('what is the cloud')) { 
+        return 'The cloud is a collection of remote servers used to store data, run applications, and provide services over the internet.'; 
+      } else if (lowerInput.includes('how do I backup my data')) { 
+        return 'You can backup your data by saving copies to external drives, cloud storage services, or using backup software.'; 
+      } else if (lowerInput.includes('what is a hacker')) { 
+        return 'A hacker is someone who uses their technical skills to access systems or networks, often with malicious intent.'; 
+      } else if (lowerInput.includes('what is a firewall')) { 
+        return 'A firewall is a security system that monitors and controls incoming and outgoing network traffic, protecting a computer or network from unauthorized access.'; 
+      } else if (lowerInput.includes('what is a browser')) { 
+        return 'A browser is a software application used to access and navigate the internet, such as Google Chrome, Firefox, and Safari.'; 
+      } else if (lowerInput.includes('can you open a link')) { 
+        return 'Sure, send me the link and I’ll open it for you!'; 
+      } else if (lowerInput.includes('how do I protect my privacy online')) { 
+        return 'Use strong, unique passwords, avoid public Wi-Fi for sensitive transactions, and enable two-factor authentication to protect your privacy online.'; 
+      } else if (lowerInput.includes('how does email work')) { 
+        return 'Email works by sending electronic messages from one server to another, allowing users to send and receive messages over the internet.'; 
+      } else if (lowerInput.includes('what is the difference between HTTP and HTTPS')) { 
+        return 'HTTPS is the secure version of HTTP, with encryption to protect data during transmission, ensuring a safer browsing experience.'; 
+      } else if (lowerInput.includes('how do I delete my account')) { 
+        return 'To delete your account, check the service’s settings or support pages for instructions, as it differs from one service to another.'; 
+      } else if (lowerInput.includes('what is a VPN')) { 
+        return 'A VPN (Virtual Private Network) encrypts your internet connection to protect your privacy and security when browsing online.'; 
+      } else if (lowerInput.includes('how do I install software')) { 
+        return 'To install software, download the installer file, run it, and follow the instructions provided by the installer.'; 
+      } else if (lowerInput.includes('what is a search engine optimization')) { 
+        return 'Search Engine Optimization (SEO) is the process of improving a website’s visibility on search engines like Google to attract more visitors.'; 
+      } else if (lowerInput.includes('how do I create a website')) { 
+        return 'To create a website, choose a domain name, pick a website builder or CMS, design your site, and publish it using a hosting service.'; 
+      } else if (lowerInput.includes('what is the difference between RAM and ROM')) { 
+        return 'RAM is temporary memory used by your computer for active tasks, while ROM is permanent memory that stores essential system data.'; 
+      } else if (lowerInput.includes('good morning')) {
+        return 'Good morning! How’s everything going today?';
+      } else if (lowerInput.includes('good afternoon')) {
+        return 'Good afternoon! What can I do for you this fine afternoon?';
+      } else if (lowerInput.includes('good evening')) {
+        return 'Good evening! How are you this evening?';
+      } else if (lowerInput.includes('how are you')) {
+        return 'I’m just a program, but thank you for asking! How are you doing today?';
+      } else if (lowerInput.includes('what is your name')) {
+        return 'My name is Jervis. How can I assist you today?';
+      } else if (lowerInput.includes('what is a computer')) {
+        return 'A computer is an electronic device that processes data and performs various tasks based on instructions.';
+      } else if (lowerInput.includes('what is a website')) {
+        return 'A website is a collection of web pages that are accessible over the internet, typically through a web browser.';
+      } else if (lowerInput.includes('what is cloud computing')) {
+        return 'Cloud computing allows users to access and store data and applications over the internet, instead of on a local computer.';
+      } else if (lowerInput.includes('what is the capital of japan')) {
+        return 'The capital of Japan is Tokyo.';
+      } else if (lowerInput.includes('can you tell me a fun fact')) {
+       return 'Sure! Did you know that honey never spoils? Archaeologists have found pots of honey in ancient tombs that are over 3,000 years old!';
+     } else if (lowerInput.includes('how do I create an app')) {
+       return 'You can create an app by learning mobile development skills such as using Swift for iOS or Kotlin for Android development.';
+     } else if (lowerInput.includes('what is javascript')) {
+       return 'JavaScript is a programming language that allows you to create interactive content on websites, such as dynamic content and animations.';
+     } else if (lowerInput.includes('what is html')) {
+       return 'HTML stands for HyperText Markup Language, and it is used to structure content on the web, like headings, paragraphs, and images.';
+     } else if (lowerInput.includes('what is css')) {
+       return 'CSS stands for Cascading Style Sheets, and it’s used to define the layout and appearance of elements on a webpage.';
+     } else if (lowerInput.includes('what is a router')) {
+       return 'A router is a device that forwards data packets between computer networks, directing traffic and enabling internet access.';
+     } else if (lowerInput.includes('how do I update my software')) {
+       return 'You can update your software by going to your device’s settings and checking for any available software updates.';
+     } else if (lowerInput.includes('what is a database')) {
+       return 'A database is a structured collection of data that can be accessed and managed easily, often used to store information for websites and applications.';
+     } else if (lowerInput.includes('who discovered penicillin')) {
+       return 'Penicillin was discovered by Alexander Fleming in 1928.';
+     } else if (lowerInput.includes('can you search the web for me')) {
+      return 'I can’t search the web directly, but I can help answer many questions with the knowledge I already have!';
+      } else if (lowerInput.includes('what is blockchain')) {
+      return 'Blockchain is a decentralized technology that records transactions across multiple computers to ensure security and transparency.';
+      } else if (lowerInput.includes('how do I reset my password')) {
+      return 'To reset your password, go to the website’s login page and click on "Forgot password" to receive a reset link via email.';
+     } else if (lowerInput.includes('how do I protect my data')) {
+    return 'To protect your data, use encryption, secure your devices with strong passwords, and be cautious when sharing personal information.';
+     } else if (lowerInput.includes('what is an ip address')) {
+       return 'An IP address is a unique identifier assigned to each device connected to a network, used for communication between devices.';
+     } else if (lowerInput.includes('how do I set up a vpn')) {
+      return 'To set up a VPN, you need to choose a VPN provider, install the VPN software, and follow their instructions to connect to a secure server.';
+     } else if (lowerInput.includes('what is cyber security')) {
+      return 'Cybersecurity is the practice of protecting systems, networks, and data from digital attacks, theft, or damage.';
+    } else if (lowerInput.includes('how do I make my computer faster')) {
+      return 'You can make your computer faster by closing unnecessary programs, uninstalling unused software, and performing regular system maintenance.';
+    } else if (lowerInput.includes('what is an algorithm')) {
+     return 'An algorithm is a set of step-by-step instructions or rules used to perform a task or solve a problem.';
+    } else if ( lowerInput.includes('show map')) {
+        openGoogleMaps() ;
+       
+    }else  if (lowerInput.includes('+') || lowerInput.includes('plus') || lowerInput.includes('sum') || lowerInput.includes('-') || lowerInput.includes('minus') || lowerInput.includes('*') || lowerInput.includes('times') || lowerInput.includes('/')|| lowerInput.includes('divide')) {
+            const result = calculateMathExpression(input);
+       return `The result is: ${result}`;
+    }
+     
+      
+
+
+    
+    }
+
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      SpeechSynthesis.speak(utterance);
+    }
+    function playdrill() {
+      audioConta.style.display = 'block';
+      audioPl.play();
+    }
+    function playwin() {
+      audioCon.style.display = 'block';
+      audio.play();
+    }
+    function playgospel() {
+      audioCont.style.display = 'block';
+      audioP.play();
+    }
+
+    function playMusic() {
+      audioContainer.style.display = 'block';
+      audioPlayer.play();
+    }
+    function playangel() {
+      audioContaine.style.display = 'block';
+      audioPlaye.play();
+    }
+    function playking() {
+      audioContain.style.display = 'block';
+      audioPlay.play();
+    }
+    function playfore() {
+      audioContai.style.display = 'block';
+      audioPla.play();
+    }
+   
+
+    function pauseMusic() {
+      audioPlayer.pause();
+    }
+    function pauseMusic() {
+      audioPlaye.pause();
+    }
+    function stopangel() {
+      audioPlaye.pause();
+      audioPlaye.currentTime = 0;
+      audioContaine.style.display = 'none';
+    }
+    function stopdrill() {
+      audioPl.pause();
+      audioPl.currentTime = 0;
+      audioConta.style.display = 'none';
+    }
+    function stopMusic() {
+      king.pause();
+      king.currentTime = 0;
+      kingcontainer.style.display = 'none';
+    }
+    function stopMusic() {
+      fore.pause();
+      fore.currentTime = 0;
+      forecontainer.style.display = 'none';
+    }
+
+  
+
+    function openGoogleMaps() {
+    
+
+    
+      const query = prompt('Where do you want to go?');
+      if (query) {
+        const url = `https://www.google.com/maps?q=${encodeURIComponent(query)}`;
+        window.open(url, '_blank');
+        document.getElementById("location").innerText = `Searching for: ${query}`;
+        speak(`Opening Google Maps to search for ${query}`);
+      }
+    }
+    function calculateMathExpression(input) {
+      try {
+          // Use regular expressions to find numbers and the operation
+          const match = input.match(/(\d+\.?\d*)\s*(\+|\-|\*|\/)\s*(\d+\.?\d*)/);
+          if (match) {
+              const num1 = parseFloat(match[1]);
+              const operator = match[2];
+              const num2 = parseFloat(match[3]);
+
+              let result;
+
+              // Perform the calculation based on the operator
+              if (operator === '+') result = num1 + num2;
+              else if (operator === '-') result = num1 - num2;
+              else if (operator === '*') result = num1 * num2;
+              else if (operator === '/') result = num1 / num2;
+
+              return result;
+          }
+          return result;
+      } catch (error) {
+          return 'Error in calculating the expression.';
+      }
+    }
+
+   
+    
+
+    function playVideo() {
+      videoContainer.style.display = 'block';
+      videoPlayer.play();
+    }
+
+    function pauseVideo() {
+      videoPlayer.pause();
+    }
+
+    function stopVideo() {
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+      videoContainer.style.display = 'none';
+    }
+
+    recognition.onerror = function (event) {
+      responseText.textContent = 'Error occurred: ' + event.error;
+      startButton.textContent = 'Start Talking';
+    };
+
+    recognition.onend = function () {
+      startButton.textContent = 'Start Talking';
+    };
+
+
+
+  </script>
+      
+
+  
+
+</body>
+
+</html>
+
+
